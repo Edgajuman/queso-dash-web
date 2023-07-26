@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="queso dash.js"></script>
+    <link rel="stylesheet" href="queso dash.css">
+    <title>Queso Ideales</title>
+    <style>
+      @font-face {
+        font-family: 'Pusab';
+        src: url('pusab.otf') format('truetype');
+      }
+
+      body {
+        font-family: 'Pusab', sans-serif;
+      }
+
+      body {
+        background-image: url('fondos/fondogenerar.png');
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: repeat;
+        animation: scrollBg 10s linear infinite;
+      }
+      
+      @keyframes scrollBg {
+        0% {
+          background-position: 0 0;
+        }
+        
+        100% {
+          background-position: 100% 0;
+        }
+      }
+
+      body {
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 50px;
+      }
+
+      #idea {
+        font-size: 25px;
+        margin-top: 50px;
+        background-image: url('texturas/tablamusica.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+
+      #generar-btn {
+        font-size: 20px;
+        padding: 10px 20px;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+      
+      #rotating-image {
+        animation: rotate 2s infinite linear;
+      }
+      
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1><img src="texturas/gene.png" alt="Generador de Ideas" width="800" height="200" class="rebote"></h1>
+    <button class="boton-anima" id="generar-btn">
+      <img src="texturas/generar.png" width="320" height="80">
+    </button>
+    <div id="idea"></div>
+
+    <script>
+      var ideas = [
+        "Crea Un nivel con una temática espacial y obstáculos flotantes.",
+        "Crea Un nivel de velocidad extrema con cambios de gravedad.",
+        "Crea Un nivel basado en la naturaleza con saltos entre árboles y cascadas.",
+        "Crea Un nivel de estilo retro con bloques y efectos visuales pixelados.",
+        "Crea Un nivel acuático con obstáculos submarinos y saltos sobre olas.",
+        "Crea Un nivel con una estética futurista y plataformas en movimiento.",
+        "Crea Un nivel musical sincronizado con la música de fondo.",
+        "Crea Un nivel de desplazamiento lateral con trampas y saltos precisos.",
+        "Crea Un nivel en el espacio exterior con asteroides y teletransportadores.",
+        "Crea Un nivel de plataforma ascendente con obstáculos cada vez más difíciles.",
+        "Crea Un nivel con tematica y arts de Quesos en peligro de ser comidos por Ratas.",
+        "Encuentra todos todos los Easter eggs que se encuentran en el GDPS (RECOPILALOS EN IMAGENES EN EL SERVIDOR DE DISCORD).",
+        "Lee todo el (StoryMode) y haz un resumen de la historia y recopilalo en el servidor de Discord.",
+        "nh.",
+      ];
+
+      var generarBtn = document.getElementById("generar-btn");
+      var ideaDiv = document.getElementById("idea");
+
+      generarBtn.addEventListener("click", function() {
+        // Agregar imagen girando
+        var rotatingImage = document.createElement("img");
+        rotatingImage.setAttribute("src", "texturas/ajustes.png");
+        rotatingImage.setAttribute("id", "rotating-image");
+        ideaDiv.appendChild(rotatingImage);
+        
+        // Después de 2 segundos, reemplazar con el texto
+        setTimeout(function() {
+          ideaDiv.textContent = ideas[Math.floor(Math.random() * ideas.length)];
+        }, 2000);
+      });
+    </script>
+  </body>
+</html>
+

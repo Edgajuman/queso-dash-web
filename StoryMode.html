@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Story Mode</title>
+    <link rel="icon" href="texturas/StoryMode.png">
+    <style>
+        @font-face {
+        font-family: 'Pusab';
+        src: url('pusab.otf') format('truetype');
+      }
+
+      body {
+        font-family: 'Pusab', sans-serif;
+      }
+
+        body {
+            text-align: center;
+        }
+
+        body {
+        background-image: url('fondos/fondo2.png');
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: repeat;
+        animation: scrollBg 10s linear infinite;
+      }
+
+        img {
+            max-width: 100%;
+            max-height: 80vh;
+            margin: 20px auto;
+            border: 1px solid rgba(0, 0, 0, 0);
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Story Mode</h1>
+    <div class="container">
+        <button onclick="mostrarPagina(-1)"><img src="texturas/izquierda.png" width="80" height="80"></button>
+        <img id="pagina" src="imagen1.png" alt="Página 1">
+        <button onclick="mostrarPagina(1)"><img src="texturas/derecha.png" width="80" height="80"></button>
+    </div>
+
+    <script>
+        let paginaActual = 1;
+        const totalPaginas = 8;
+
+        function mostrarPagina(direccion) {
+            paginaActual += direccion;
+            if (paginaActual < 1) {
+                paginaActual = totalPaginas;
+            } else if (paginaActual > totalPaginas) {
+                paginaActual = 1;
+            }
+
+            const imagen = document.getElementById('pagina');
+            imagen.src = 'imagen' + paginaActual + '.png';
+        }
+    </script>
+</body>
+</html>
